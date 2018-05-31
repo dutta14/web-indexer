@@ -1,0 +1,75 @@
+.resultbox {
+    margin-bottom: 20px;
+}
+
+body {
+    margin: 20px;
+}
+
+.heading {
+    background: #fafafa;
+    height: 120px;
+    padding-top: 30px;
+}
+
+#searchbox {
+    width: 600px;
+}
+
+#resultcontents {
+    padding-top: 50px;
+    width: 60%;
+    float: left;
+}
+
+#options {
+    padding-left: 150px;
+}
+
+.title a {
+    color: #1a0dab;
+    font-size: 18px;
+}
+
+.url a {
+    color: #006621;
+    font-size: 14px;
+}
+
+.id {
+    color: #aaaaaa;
+}
+
+.desc {
+    font-size: 12px;
+    color: darkred;
+}
+
+.snips {
+    font-size: 12px;
+}
+
+#showing {
+    margin-bottom: 25px;
+    color: #808080;
+}
+
+.myname {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+a {
+   color: #1a0dab;
+}
+
+.suggested {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+#didumean {
+    font-size: 18px;
+    color: #dd4b39;
+}

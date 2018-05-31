@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="searchApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Search Engine</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-animate.min.js"></script> <!-- angular animate load -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-sanitize.js"></script> <!-- angular animate load -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    
+    <body>
+        <div ng-controller="srchController">
+            <div class="col-xs-12 heading">
+                <div class="navbar-header col-xs-3">
+                    <a href="" class="navbar-brand myname">Anindya</a>
+                </div>
+                <form class="navbar-form col-xs-6" role="search">
+                    <section class="form-group">
+                        <div class="input-group">
+                            <input name="search" id="searchbox" type="text" class="form-control" placeholder="Enter search term" title="Enter search term" ng-change="getsuggest()"
+                                   ng-model="myVal">
+                            <span class="input-group-btn">
+                                <button id="search" class="btn btn-primary" ng-click="search(false, false)"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                   </section>
+                </form>
+                <div class="col-xs-3" id="options">
+                    <b>Choose an algorithm:</b>
+                    <div class="radio">
+                        <label>  <input id="default_select" type="radio" name="algo" value="lucene"> Lucene </label>
+                    </div>
+                    <div class="radio">
+                        <label>  <input type="radio" name="algo" value="pr"> PageRank </label>
+                    </div>
+                </div>
+            </div>
+            <div id="resultcontents">
+                <div id="showingresultsfor">
+                    Including results for <span class="suggested"><a ng-click="changeterm()">{{suggested}}</a></span><br>
+                    Search only for <a ng-click="search(true)">{{query}}</a><br>
+                </div>
+                <div id="didyoumean">
+                    <span id="didumean"> Did you mean</span>: <span class="suggested"><br>
+                    <a ng-click="search(false, true)"><b>{{suggested}}</b></a></span><br>
+                </div>
+                <div id="showing">
+                 Showing {{start}} to {{end}} of {{total}}
+                </div>
+                <div ng-repeat="item in data">
+                    <table class="resultbox">
+                      <tr><td class="title"><a href="{{item.url}}">{{item.title}}</a></td></tr>
+                        <tr><td class="url"><a href="{{item.url}}">{{item.url}}</a></td></tr>
+                        <tr><td class="id">ID: {{item.id}}</td></tr>
+                        <tr><td class="desc">{{getdesc(item)}}</td></tr>
+                        <tr><td class="snips" ng-bind-html="item.snippet"></td></tr>
+                    </table>
+                </div>
+            </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <!-- jquery load -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> <!-- bootstrap js load -->
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script src="js/script.js"></script>
+        </div>
+    </body>
+
+</html>
